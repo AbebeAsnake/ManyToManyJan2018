@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Movies</h1>
+   <div th:each="eachMovie:${movies}">
+           <p th:text="${eachMovie.title}"></p>
+            <div>
+                <h3>Actors:</h3>
+                   <div th:each="eachActor:${eachMovie.actors}">
+                           <p th:text="${eachActor.realName}"></p>
+                       </div>
+            </div>
+       </div>
+<h1>Actors</h1>
+<div th:each="anActor:${actors}">
+    <p th:text="${anActor.realName}"></p>
+</div>
+</body>
+</html>

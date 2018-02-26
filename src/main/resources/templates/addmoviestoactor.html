@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/addmovie}" th:object="${movieobject}" method="post">
+    <input type="hidden" th:field="*{id}">
+
+    <span th:if="${#fields.hasErrors('movieName')}" th:errors="*{movieName}"></span>
+    <input type="text" th:field="*{movieName}">
+    <input type="submit" value="Add">
+    <div>
+                        <select th:each="eachActor:${actorList}">
+                            <option type="checkbox" th:field="*{actors}" th:value="${eachActor.id}"  th:text="${eachOption.realName}">
+                        </select>
+    </div>
+
+</form>
+</body>
+</html>
