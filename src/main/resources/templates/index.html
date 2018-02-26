@@ -10,6 +10,7 @@
 <h1>Movies</h1>
    <div th:each="eachMovie:${movies}">
            <p th:text="${eachMovie.title}"></p>
+       <h4><a th:href="@{/addactortomovie/{id}(id=${eachMovie.id})}" th:inline="text">Add actors</a></h4>
             <div>
                 <h3>Actors:</h3>
                    <div th:each="eachActor:${eachMovie.actors}">
